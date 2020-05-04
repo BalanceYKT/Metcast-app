@@ -4,16 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log.d
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.recyclerview.Train.ApiService
-import com.example.recyclerview.Train.User
-import com.example.recyclerview.Train.myAdapter
 import com.example.recyclerview.model.Forecast
-import com.example.recyclerview.model.Metcast
 import com.example.recyclerview.network.ApiFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
 
 
 class MainActivity : AppCompatActivity() {
@@ -47,16 +41,16 @@ class MainActivity : AppCompatActivity() {
 
 
         val weatherService = ApiFactory.weatherHolderApi
-        weatherService.getWeather(YakutskCity, TemperatureUnit).enqueue(object : Callback<List<Metcast>>{
+        weatherService.getWeather(YakutskCity, TemperatureUnit).enqueue(object : Callback<Forecast>{
             override fun onResponse(
-                call: Call<List<Metcast>>,
-                response: Response<List<Metcast>>
+                call: Call<Forecast>,
+                response: Response<Forecast>
             ) {
                 showData(response.body()!!)
                 d("asd", "Success" )
             }
 
-            override fun onFailure(call: Call<List<Metcast>>, t: Throwable) {
+            override fun onFailure(call: Call<Forecast>, t: Throwable) {
                 d("asd","Fail")
             }
         })
@@ -64,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun showData(Items: List<Metcast>) {
+    private fun showData(Items: Forecast) {
         recycler_view.apply {
             adapter = Adapter(Items)
             layoutManager = LinearLayoutManager(this@MainActivity)
