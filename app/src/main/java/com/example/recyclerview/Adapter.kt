@@ -1,6 +1,5 @@
 package com.example.recyclerview
 
-import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.model.Forecast
-import com.example.recyclerview.model.Metcast
 import kotlinx.android.synthetic.main.item.view.*
 
-class Adapter(private val ItemList: List<Metcast>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(private val ItemList: Forecast) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item,
@@ -20,13 +18,12 @@ class Adapter(private val ItemList: List<Metcast>) : RecyclerView.Adapter<Adapte
         return ViewHolder(itemView)
     }
 
-    override fun getItemCount() = ItemList.size
+    override fun getItemCount() = ItemList.cnt
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem = ItemList[position]
-        holder.imageViev.setImageResource(currentItem.imageResource)
-        holder.textView1.text = currentItem.cod
-        holder.textView2.text = currentItem.temp as? String
+        val currentItem = ItemList.list[position]
+        holder.textView1.text = ItemList.cod
+        holder.textView2.text = currentItem.dt.toString()
     }
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
