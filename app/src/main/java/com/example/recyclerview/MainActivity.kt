@@ -16,36 +16,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // --------------------------------------
-/*        val retrofit = Retrofit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val api = retrofit.create(ApiService::class.java)
-
-        api.fetchAllUsers().enqueue(object : Callback<List<User>> {
-            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
-                showData(response.body()!!)
-            }
-
-            override fun onFailure(call: Call<List<User>>, t: Throwable) {
-
-            }
-        })
-
- */
 
         // -------------------network service ---------------------
-
-
-
         val weatherService = ApiFactory.weatherHolderApi
         weatherService.getWeather(YakutskCity, TemperatureUnit).enqueue(object : Callback<Forecast>{
-            override fun onResponse(
-                call: Call<Forecast>,
-                response: Response<Forecast>
-            ) {
+            override fun onResponse(call: Call<Forecast>, response: Response<Forecast>) {
                 showData(response.body()!!)
                 d("asd", "Success" )
             }
