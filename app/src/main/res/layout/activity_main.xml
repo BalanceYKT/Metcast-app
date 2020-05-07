@@ -77,7 +77,7 @@
             android:textSize="16sp" />
 
         <ImageView
-            android:id="@+id/imageViewWeather"
+            android:id="@+id/todayImageViewWeather"
             android:layout_width="132dp"
             android:layout_height="128dp"
             android:layout_alignWithParentIfMissing="false"
@@ -128,7 +128,7 @@
                     android:orientation="vertical">
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/my_recycler_view"
+                        android:id="@+id/my_recycler_view1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:clipToPadding="false"
