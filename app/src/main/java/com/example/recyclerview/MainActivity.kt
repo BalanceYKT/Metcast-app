@@ -3,6 +3,7 @@ package com.example.recyclerview
 import android.os.Bundle
 import android.util.Log.d
 import android.view.View
+import android.widget.RelativeLayout
 import android.widget.TabHost
 import android.widget.TabHost.TabSpec
 import androidx.appcompat.app.AppCompatActivity
@@ -93,24 +94,78 @@ class MainActivity : AppCompatActivity() {
 
     private fun showIcon(Icon: String){
         when (Icon){
-            "01d" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_clear_sky)
-            "01n" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_clear_sky)
-            "02d" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_few_cloud)
-            "02n" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_few_cloud)
-            "03d" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_scattered_clouds)
-            "03n" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_scattered_clouds)
-            "04d" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_broken_clouds)
-            "04n" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_broken_clouds)
-            "09d" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_shower_rain)
-            "09n" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_shower_rain)
-            "10d" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_rain)
-            "10n" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_rain)
-            "11n" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_thunderstorm)
-            "11d" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_thunderstorm)
-            "13d" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_snow)
-            "13n" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_snow)
-            "15d" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_mist)
-            "15n" -> todayImageViewWeather.setImageResource(R.drawable.ic_weather_mist)
+            "01d" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_clear_sky)
+                details.setBackgroundResource(R.color.color_clear_and_sunny)
+            }
+            "01n" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_clear_sky)
+                details.setBackgroundResource(R.color.color_clear_and_sunny)
+            }
+            "02d" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_few_cloud)
+                details.setBackgroundResource(R.color.color_partly_cloudy)
+            }
+            "02n" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_few_cloud)
+                details.setBackgroundResource(R.color.color_partly_cloudy)
+            }
+            "03d" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_scattered_clouds)
+                details.setBackgroundResource(R.color.color_gusty_winds)
+            }
+            "03n" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_scattered_clouds)
+                details.setBackgroundResource(R.color.color_gusty_winds)
+            }
+            "04d" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_broken_clouds)
+                details.setBackgroundResource(R.color.color_cloudy_overnight)
+            }
+            "04n" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_broken_clouds)
+                details.setBackgroundResource(R.color.color_cloudy_overnight)
+            }
+            "09d" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_shower_rain)
+                details.setBackgroundResource(R.color.color_hail_stroms)
+            }
+            "09n" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_shower_rain)
+                details.setBackgroundResource(R.color.color_hail_stroms)
+            }
+            "10d" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_rain)
+                details.setBackgroundResource(R.color.color_heavy_rain)
+            }
+            "10n" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_rain)
+                details.setBackgroundResource(R.color.color_heavy_rain)
+            }
+            "11n" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_thunderstorm)
+                details.setBackgroundResource(R.color.color_thunderstroms)
+            }
+            "11d" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_thunderstorm)
+                details.setBackgroundResource(R.color.color_thunderstroms)
+            }
+            "13d" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_snow)
+                details.setBackgroundResource(R.color.color_snow)
+            }
+            "13n" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_snow)
+                details.setBackgroundResource(R.color.color_snow)
+            }
+            "15d" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_mist)
+                details.setBackgroundResource(R.color.color_mix_snow_and_rain)
+            }
+            "15n" -> {
+                todayImageViewWeather.setImageResource(R.drawable.ic_weather_mist)
+                details.setBackgroundResource(R.color.color_mix_snow_and_rain)
+            }
         }
     }
 
