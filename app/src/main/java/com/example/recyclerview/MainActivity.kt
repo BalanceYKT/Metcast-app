@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.recyclerview.Adapters.Adapter
+import com.example.recyclerview.Adapters.PagerAdapter
 import com.example.recyclerview.model.Forecast
 import com.example.recyclerview.network.ApiFactory
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,6 +20,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val fragmentAdapter = PagerAdapter(supportFragmentManager)
+        viewpager.adapter = fragmentAdapter
+
+        tabs.setupWithViewPager(viewpager)
 
         // ------------------- TabHost -------------------
         tabHostT.setup()
