@@ -24,6 +24,7 @@ class Adapter(private val ItemList: Forecast) : RecyclerView.Adapter<Adapter.Vie
         val currentItem = ItemList.list[position]
         holder.textView1.text = currentItem.main.temp.toString()
         holder.textView2.text = currentItem.main.feels_like.toString()
+        holder.textView3.text = currentItem.dt_txt
         bindIcon(currentItem.weather[0].icon, holder.imageViev)
     }
 
@@ -31,6 +32,7 @@ class Adapter(private val ItemList: Forecast) : RecyclerView.Adapter<Adapter.Vie
         val imageViev: ImageView = itemView.image_view
         val textView1: TextView = itemView.text_view_1
         val textView2: TextView = itemView.text_view_2
+        val textView3: TextView = itemView.textView
     }
 
     private fun bindIcon(Icon: String, image: ImageView) {
