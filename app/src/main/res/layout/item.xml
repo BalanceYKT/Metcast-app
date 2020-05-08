@@ -19,10 +19,12 @@
             android:id="@+id/text_view_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/image_view"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@+id/textView"
             android:text="Line 1"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -30,8 +32,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_1"
-            android:layout_toEndOf="@id/image_view"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/textView3"
             android:text="Line 2" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@+id/image_view"
+            android:text="Today Temperature: " />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/image_view"
+            android:text="Feels like: " />
 
     </RelativeLayout>
 

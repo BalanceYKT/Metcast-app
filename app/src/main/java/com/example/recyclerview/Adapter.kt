@@ -22,8 +22,9 @@ class Adapter(private val ItemList: Forecast) : RecyclerView.Adapter<Adapter.Vie
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = ItemList.list[position]
-        holder.textView1.text = ItemList.cod
-        holder.textView2.text = currentItem.dt.toString()
+        holder.textView1.text = currentItem.main.temp.toString()
+        holder.textView2.text = currentItem.main.feels_like.toString()
+        bindIcon(currentItem.weather[0].icon, holder.imageViev)
     }
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
@@ -31,4 +32,29 @@ class Adapter(private val ItemList: Forecast) : RecyclerView.Adapter<Adapter.Vie
         val textView1: TextView = itemView.text_view_1
         val textView2: TextView = itemView.text_view_2
     }
+
+    private fun bindIcon(Icon: String, image: ImageView) {
+        when (Icon) {
+            "01d" -> image.setImageResource(R.drawable.ic_weather_clear_sky)
+            "01n" -> image.setImageResource(R.drawable.ic_weather_clear_sky)
+            "02d" -> image.setImageResource(R.drawable.ic_weather_few_cloud)
+            "02n" -> image.setImageResource(R.drawable.ic_weather_few_cloud)
+            "03d" -> image.setImageResource(R.drawable.ic_weather_scattered_clouds)
+            "03n" -> image.setImageResource(R.drawable.ic_weather_scattered_clouds)
+            "04d" -> image.setImageResource(R.drawable.ic_weather_broken_clouds)
+            "04n" -> image.setImageResource(R.drawable.ic_weather_broken_clouds)
+            "09d" -> image.setImageResource(R.drawable.ic_weather_shower_rain)
+            "09n" -> image.setImageResource(R.drawable.ic_weather_shower_rain)
+            "10d" -> image.setImageResource(R.drawable.ic_weather_rain)
+            "10n" -> image.setImageResource(R.drawable.ic_weather_rain)
+            "11n" -> image.setImageResource(R.drawable.ic_weather_thunderstorm)
+            "11d" -> image.setImageResource(R.drawable.ic_weather_thunderstorm)
+            "13d" -> image.setImageResource(R.drawable.ic_weather_snow)
+            "13n" -> image.setImageResource(R.drawable.ic_weather_snow)
+            "15d" -> image.setImageResource(R.drawable.ic_weather_mist)
+            "15n" -> image.setImageResource(R.drawable.ic_weather_mist)
+        }
+    }
+
+
 }

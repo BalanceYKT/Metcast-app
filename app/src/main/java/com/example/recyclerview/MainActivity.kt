@@ -2,10 +2,6 @@ package com.example.recyclerview
 
 import android.os.Bundle
 import android.util.Log.d
-import android.view.View
-import android.widget.RelativeLayout
-import android.widget.TabHost
-import android.widget.TabHost.TabSpec
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerview.model.Forecast
@@ -27,19 +23,15 @@ class MainActivity : AppCompatActivity() {
         tabHostT.setup()
 
         val tabSpec = tabHostT.newTabSpec("tag1")
-        tabSpec.setIndicator("Today")
-        tabSpec.setContent(today.id)
+        tabSpec.setIndicator("On Week")
+        tabSpec.setContent(week.id)
         tabHostT.addTab(tabSpec)
 
         val tabSpec2 = tabHostT.newTabSpec("tag2")
-        tabSpec2.setIndicator("Tomorrow")
-        tabSpec2.setContent(tomorrow.id)
+        tabSpec2.setIndicator("On Next Week")
+        tabSpec2.setContent(week2.id)
         tabHostT.addTab(tabSpec2)
 
-        val tabSpec3 = tabHostT.newTabSpec("tag3")
-        tabSpec3.setIndicator("On week")
-        tabSpec3.setContent(week.id)
-        tabHostT.addTab(tabSpec3)
 
 
 
@@ -84,15 +76,9 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
         }
-
-        my_recycler_view3.apply {
-            adapter = Adapter(Items)
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            setHasFixedSize(true)
-        }
     }
 
-    private fun showIcon(Icon: String){
+    private fun showIcon(Icon: String) {
         when (Icon){
             "01d" -> {
                 todayImageViewWeather.setImageResource(R.drawable.ic_weather_clear_sky)
