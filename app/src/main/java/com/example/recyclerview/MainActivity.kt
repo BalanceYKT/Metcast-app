@@ -4,15 +4,16 @@ import android.os.Bundle
 import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager.widget.ViewPager
 import com.example.recyclerview.Adapters.Adapter
 import com.example.recyclerview.Adapters.PagerAdapter
 import com.example.recyclerview.model.Forecast
 import com.example.recyclerview.network.ApiFactory
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val fragmentAdapter = PagerAdapter(supportFragmentManager)
         viewpager.adapter = fragmentAdapter
 
-        tabs.setupWithViewPager(viewpager)
+        tab_layout.setupWithViewPager(viewpager)
 
         // ------------------- TabHost -------------------
         tabHostT.setup()
