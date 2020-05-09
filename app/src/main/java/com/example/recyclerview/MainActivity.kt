@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         tabHostT.addTab(tabSpec)
 
 
+
         // ------------------- network service ---------------------
         val weatherService = ApiFactory.weatherHolderApi
         weatherService.getWeather(YakutskCity, TemperatureUnit).enqueue(object : Callback<Forecast>{
@@ -65,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 
     private fun showIcon(Icon: String) {
         when (Icon){

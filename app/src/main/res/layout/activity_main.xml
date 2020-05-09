@@ -96,7 +96,8 @@
 
     </RelativeLayout>
 
-    <TabHost
+
+        <TabHost
         android:id="@+id/tabHostT"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -133,15 +134,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scrollbars="vertical"
-                        tools:listitem="@layout/item"
-
-                        />
+                        tools:listitem="@layout/item" />
 
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>
     </TabHost>
-
 
 
 
