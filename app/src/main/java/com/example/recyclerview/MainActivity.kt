@@ -19,6 +19,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+        // ------------------- TabHost -------------------
+        tabHostT.setup()
+
+        val tabSpec = tabHostT.newTabSpec("tag1")
+        tabSpec.setIndicator("On Week")
+        tabSpec.setContent(week.id)
+        tabHostT.addTab(tabSpec)
+
+
+
         // ------------------- network service ---------------------
         val weatherService = ApiFactory.weatherHolderApi
         weatherService.getWeather(YakutskCity, TemperatureUnit).enqueue(object : Callback<Forecast>{
@@ -54,6 +64,7 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
         }
+
     }
 
 
