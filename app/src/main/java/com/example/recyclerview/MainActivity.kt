@@ -27,13 +27,6 @@ class MainActivity : AppCompatActivity() {
         tabSpec.setContent(week.id)
         tabHostT.addTab(tabSpec)
 
-        val tabSpec2 = tabHostT.newTabSpec("tag2")
-        tabSpec2.setIndicator("On Next Week")
-        tabSpec2.setContent(week2.id)
-        tabHostT.addTab(tabSpec2)
-
-
-
 
         // ------------------- network service ---------------------
         val weatherService = ApiFactory.weatherHolderApi
@@ -71,11 +64,6 @@ class MainActivity : AppCompatActivity() {
             setHasFixedSize(true)
         }
 
-        my_recycler_view2.apply {
-            adapter = Adapter(Items)
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            setHasFixedSize(true)
-        }
     }
 
     private fun showIcon(Icon: String) {
