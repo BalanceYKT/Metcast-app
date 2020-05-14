@@ -2,6 +2,8 @@ package com.example.recyclerview.network
 
 import com.example.recyclerview.BuildConfig
 import com.example.recyclerview.WEATHER_API_KEY
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import kotlinx.coroutines.CoroutineScope
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -46,6 +48,7 @@ object RetrofitFactory{
         .client(client)
         .baseUrl(baseUrl)
         .addConverterFactory(MoshiConverterFactory.create())
+        .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
 
 }

@@ -1,15 +1,15 @@
 package com.example.recyclerview
 
 import android.os.Bundle
-import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerview.model.Forecast
 import com.example.recyclerview.network.ApiFactory
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
 
         // ------------------- TabHost -------------------
@@ -31,19 +32,13 @@ class MainActivity : AppCompatActivity() {
 
         // ------------------- network service ---------------------
         val weatherService = ApiFactory.weatherHolderApi
-        weatherService.getWeather(YakutskCity, TemperatureUnit).enqueue(object : Callback<Forecast>{
-            override fun onResponse(call: Call<Forecast>, response: Response<Forecast>) {
-                showData(response.body()!!)
-                showRecyclerData(response.body()!!)
-                d("asd", "Success" )
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = weatherService.getWeather(YakutskCity, TemperatureUnit)
+            withContext(Dispatchers.Main){
+                showData(response)
+                showRecyclerData(response)
             }
-
-            override fun onFailure(call: Call<Forecast>, t: Throwable) {
-                d("asd","Fail")
-            }
-        })
-
-
+        }
     }
 
 
